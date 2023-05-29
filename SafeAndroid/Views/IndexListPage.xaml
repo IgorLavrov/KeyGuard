@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SafeAndroid.Views.IndexListPage"
+             xmlns:local="clr-namespace:SafeAndroid"
+             Style="{StaticResource AppBackground}">
+    <StackLayout>
+        <ListView x:Name="accounList" ItemsSource="{Binding}" ItemSelected="OnItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding SourceName}"
+                                       FontAttributes="Bold"
+                                       Margin="20, 0, 0, 0"
+                                       HorizontalTextAlignment="Start"
+                                       VerticalTextAlignment="Center"
+                                       FontSize="20" 
+                                       TextColor="#c9f8a9"
+                                       HeightRequest="30"/>
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Text="Добавить"
+                Clicked="CreateAccount" 
+                TextColor="#c9f8a9"
+                FontSize="17"
+                BackgroundColor="#1a2e69"
+                CornerRadius="10"
+                BorderWidth="2"
+                BorderColor="#83a78f"
+                WidthRequest="180"
+                HeightRequest="50"
+                Margin="40,0,40,20"/>
+    </StackLayout>
+</ContentPage>

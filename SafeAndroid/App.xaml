@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:gradients="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" 
+             xmlns:brushes="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.Core"
+             xmlns:local1="clr-namespace:SafeAndroid" 
+             x:Class="SafeAndroid.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Style x:Key="AppBackground" TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="#111e44"/>
+                <Setter Property="Background">
+                    <LinearGradientBrush StartPoint="0,0"
+                                         EndPoint="1,1">
+                        <GradientStop Color="#1a2e69"
+                                    Offset="0.25" />
+                        <GradientStop Color="#83a78f"
+                                    Offset="0.75" />
+                        <GradientStop Color="#c9f8a9"
+                                    Offset="1.0" />
+                    </LinearGradientBrush>
+                </Setter>
+                <Setter Property="BarTextColor" Value="WhiteSmoke"/>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+
+</Application>

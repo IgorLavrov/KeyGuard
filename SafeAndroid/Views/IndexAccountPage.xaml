@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ShowHidePasswordTrigger"
+             xmlns:local1="clr-namespace:SafeAndroid"
+             x:Class="SafeAndroid.Views.IndexAccountPage"
+             Style="{StaticResource AppBackground}">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Название"
+                   Margin="15, 0, 0, 0"
+                   FontSize="18"
+                   TextColor="#999999"/>
+            <local1:MyEntry Text="{Binding SourceName}"
+                            FontSize="20"
+                            TextColor="#d4f99c"
+                            Padding="10"
+                            BackgroundColor="#31FFFFFF"
+                            BorderColor="#c9f8a9"
+                            BorderThickness="1"
+                            CornerRadius="8"
+                            Margin="10, 0, 10, 0"/>
+            <Label Text="Имя пользователя"
+                   Margin="15, 0, 0, 0"
+                   FontSize="18"
+                   TextColor="#999999"/>
+            <local1:MyEntry Text="{Binding UserName}" 
+                            FontSize="20"
+                            TextColor="#d4f99c"
+                            Padding="10"
+                            BackgroundColor="#31FFFFFF"
+                            BorderColor="#c9f8a9"
+                            BorderThickness="1"
+                            CornerRadius="8"
+                            Margin="10, 0, 10, 0"/>
+            <Label Text="Пароль"
+                   Margin="15, 0, 0, 0"
+                   FontSize="18"
+                   TextColor="#999999"/>
+            <Grid>
+            <local1:MyEntry Text="{Binding Password}" 
+                   IsPassword="{Binding Source={x:Reference ShowPasswordActualTrigger}, Path=HidePassword}"
+                   FontSize="20"
+                   TextColor="#d4f99c"
+                   Padding="10"
+                   BackgroundColor="#31FFFFFF"
+                   BorderColor="#c9f8a9"
+                   BorderThickness="1"
+                   CornerRadius="8"
+                   Margin="10, 0, 10, 0"/>
+            <ImageButton VerticalOptions="Center"
+                         Margin="0,0,10,0"
+                         HeightRequest="20"
+                         HorizontalOptions="End"
+                         Source="ic_eye_hide">
+                <ImageButton.Triggers>
+                    <EventTrigger Event="Clicked">
+                        <local:ShowPasswordTriggerAction ShowIcon="ic_eye"
+                                                         HideIcon="ic_eye_hide"
+                                                         x:Name="ShowPasswordActualTrigger"/>
+                    </EventTrigger>
+                </ImageButton.Triggers>
+            </ImageButton>
+            </Grid>
+            <Label Text="Ссылка на ресурс"
+                   Margin="15, 0, 0, 0"
+                   FontSize="18"
+                   TextColor="#999999"/>
+            <local1:MyEntry Text="{Binding Link}" 
+                            FontSize="20"
+                            TextColor="#d4f99c"
+                            Padding="10"
+                            BackgroundColor="#31FFFFFF"
+                            BorderColor="#c9f8a9"
+                            BorderThickness="1"
+                            CornerRadius="8"
+                            Margin="10, 0, 10, 0"/>
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Сохранить"
+                        TextColor="#003366"
+                        FontAttributes="Bold"
+                        Clicked="SaveAccount" 
+                        BackgroundColor="#83a78f"
+                        BorderColor="#003366"
+                        BorderWidth="2"
+                        CornerRadius="5"
+                        WidthRequest="110"
+                        HeightRequest="50"
+                        Margin="20, 20, 0, 0"/>
+                <Button Text="Удалить" 
+                        Clicked="DeleteAccount"
+                        FontAttributes="Bold"
+                        TextColor="#003366"
+                        BackgroundColor="#83a78f"
+                        BorderColor="#003366"
+                        BorderWidth="2"
+                        CornerRadius="5"
+                        WidthRequest="110"
+                        HeightRequest="50"
+                        Margin="0, 20, 0, 0"/>
+                <Button Text="Отмена" 
+                        FontAttributes="Bold"
+                        Clicked="Cancel"
+                        TextColor="#003366"
+                        BackgroundColor="#83a78f"
+                        BorderColor="#003366"
+                        BorderWidth="2"
+                        CornerRadius="5"
+                        WidthRequest="110"
+                        HeightRequest="50"
+                        Margin="0, 20, 0, 0"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

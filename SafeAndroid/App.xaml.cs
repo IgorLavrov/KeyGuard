@@ -1,4 +1,5 @@
-﻿using SafeAndroid.Views;
+﻿using SafeAndroid.Services;
+using SafeAndroid.Views;
 using System;
 using System.IO;
 using Xamarin.Forms;
@@ -23,8 +24,10 @@ namespace SafeAndroid
         }
         public App()
         {
-            InitializeComponent();      
-            MainPage = new NavigationPage(new IndexListPage());
+            InitializeComponent();
+            DependencyService.Register<ILoginService, loginService>();
+            MainPage = new NavigationPage(new LoginPage());
+            //MainPage = new NavigationPage(new IndexListPage());
         }
 
         protected override void OnStart()
